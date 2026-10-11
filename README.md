@@ -17,10 +17,12 @@ The RSVP buttons (top and bottom) link to the Discord invite: https://discord.gg
 To change it, search `index.html` for `discord.gg` (it appears twice).
 
 ## Docker / Portainer
-`docker-compose.yml` builds a tiny nginx container and publishes it on host port **1484**
-(the dashboard already uses 1422). Deploy it as a Portainer stack from this repo, then point
-your reverse proxy / DNS for `wedding.gerdsss.cloud` at `host:1484`. If 1484 is taken on
-your server, change the left-hand number in `docker-compose.yml`.
+Live at **https://wedding.gerdsss.cloud**.
+
+`docker-compose.yml` builds a tiny nginx container (configured for `wedding.gerdsss.cloud`) and
+publishes it on host port **1484**. Deploy it as a Portainer stack from this repo, then point your
+reverse proxy / DNS for `wedding.gerdsss.cloud` at `host:1484`. If 1484 is taken on your server,
+change the left-hand number in `docker-compose.yml`.
 
 ## Hosting (without Docker)
 - **GitHub Pages:** push this repo, then Settings > Pages > deploy from the `main` branch, `/ (root)`.
