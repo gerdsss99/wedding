@@ -1,0 +1,7 @@
+services:
+  wedding:
+    build: .
+    container_name: wedding
+    restart: unless-stopped
+    ports:
+      - "1484:80"   # dashboard uses 1422; point wedding.gerdsss.cloud at host port 1484
