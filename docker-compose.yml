@@ -1,6 +1,7 @@
 services:
   wedding:
     build: .
+    pull_policy: build          # always rebuild the image from this repo on deploy (never reuse an old one)
     container_name: wedding
     restart: unless-stopped
     ports:
