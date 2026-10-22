@@ -24,6 +24,17 @@ function out(array $data, int $code = 200): never
 $action = (string) ($_GET['a'] ?? '');
 gb_dirs();
 
+if ($action === 'health' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    // Quick self-check you can open in a browser: /guestbook/api.php?a=health
+    out([
+        'build'               => 'wedding-guestbook 1.7.3',
+        'admin_file_present'  => is_file(__DIR__ . '/admin.php'),
+        'admin_password_set'  => (getenv('GUESTBOOK_ADMIN_PASSWORD') !== false && getenv('GUESTBOOK_ADMIN_PASSWORD') !== '') || (getenv('GUESTBOOK_ADMIN_HASH') !== false && getenv('GUESTBOOK_ADMIN_HASH') !== ''),
+        'data_writable'       => is_writable(GB_DIR),
+        'php'                 => PHP_VERSION,
+    ]);
+}
+
 if ($action === 'list' && $_SERVER['REQUEST_METHOD'] === 'GET') {
     $index = gb_json_read(GB_DIR . '/index.json', null);
     if (!is_array($index)) {

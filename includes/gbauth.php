@@ -28,7 +28,7 @@ function gba_session(): void
     $https = (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https') || !empty($_SERVER['HTTPS']);
     session_name('gbadmin');
     session_set_cookie_params([
-        'lifetime' => 0, 'path' => '/guestbook', 'secure' => $https,
+        'lifetime' => 0, 'path' => '/', 'secure' => $https,
         'httponly' => true, 'samesite' => 'Strict',
     ]);
     session_start();
