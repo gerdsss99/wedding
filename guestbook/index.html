@@ -353,6 +353,12 @@ body.entered .hero{animation:rise .9s .1s both}
 @media(min-width:1000px){ .cols textarea.field{min-height:190px} .cols label.lbl{margin-top:16px} }
 @media(min-width:1000px) and (max-height:860px){ .cols textarea.field{min-height:130px} }
 
+/* ===== v1.7.2: lining numbers, calmer guest names ===== */
+body,.top .when,#intro .cover .date{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+.entry .nm,.entry.noimg .nm{font:600 1.3rem/1.25 var(--serif);letter-spacing:.02em;color:var(--olive-d);margin:12px 4px 0}
+.entry.noimg .nm{margin:12px 0 0;font-size:1.3rem}
+.lb .nm{font:600 1.6rem/1.2 var(--serif);letter-spacing:.02em}
+
 </style>
 </head>
 <body class="gated">
