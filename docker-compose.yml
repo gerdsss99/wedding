@@ -5,3 +5,17 @@ services:
     restart: unless-stopped
     ports:
       - "1484:80"   # wedding.gerdsss.cloud -> host port 1484
+    environment:
+      # Owner login for /guestbook/admin.php. Set ONE of these in Portainer's stack
+      # "Environment variables" (never commit a real value to git):
+      #   GUESTBOOK_ADMIN_HASH      a bcrypt hash (you can reuse the dashboard's APP_PASSWORD_HASH value)
+      #   GUESTBOOK_ADMIN_PASSWORD  a plain password (simpler, fine for a one-off event)
+      - GUESTBOOK_ADMIN_HASH=${GUESTBOOK_ADMIN_HASH:-}
+      - GUESTBOOK_ADMIN_PASSWORD=${GUESTBOOK_ADMIN_PASSWORD:-}
+      # Only if your proxy sits behind Cloudflare (so each guest is rate-limited separately): CF-Connecting-IP
+      - TRUSTED_IP_HEADER=${TRUSTED_IP_HEADER:-}
+    volumes:
+      - wedding_data:/var/www/data    # the guest book signatures (survive redeploys)
+
+volumes:
+  wedding_data:
