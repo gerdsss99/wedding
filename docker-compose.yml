@@ -5,8 +5,8 @@ services:
     build:
       context: .
       args:
-        BUILD_REV: "1.7.4"
-    image: wedding:1.7.4
+        BUILD_REV: "1.7.5"
+    image: wedding:1.7.5
     container_name: wedding
     restart: unless-stopped
     ports:

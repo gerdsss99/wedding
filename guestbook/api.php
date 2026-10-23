@@ -27,8 +27,8 @@ gb_dirs();
 if ($action === 'health' && $_SERVER['REQUEST_METHOD'] === 'GET') {
     // Quick self-check you can open in a browser: /guestbook/api.php?a=health
     out([
-        'code'                => 'wedding-guestbook 1.7.4',
-        'image_rev'           => trim((string) @file_get_contents('/build-rev.txt')) ?: 'none (image built before 1.7.4)',
+        'code'                => 'wedding-guestbook 1.7.5',
+        'image_rev'           => trim((string) @file_get_contents('/build-rev.txt')) ?: 'none (image built before 1.7.5)',
         'admin_file_present'  => is_file(__DIR__ . '/admin.php'),
         'admin_password_set'  => (getenv('GUESTBOOK_ADMIN_PASSWORD') !== false && getenv('GUESTBOOK_ADMIN_PASSWORD') !== '') || (getenv('GUESTBOOK_ADMIN_HASH') !== false && getenv('GUESTBOOK_ADMIN_HASH') !== ''),
         'data_writable'       => is_writable(GB_DIR),
