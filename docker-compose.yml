@@ -1,7 +1,12 @@
 services:
   wedding:
-    build: .
-    pull_policy: build          # always rebuild the image from this repo on deploy (never reuse an old one)
+    # Bump the number below (here AND in `image:`) whenever a deploy doesn't seem to pick up changes:
+    # a new image name can't exist yet, so Docker is forced to build it fresh from this repo.
+    build:
+      context: .
+      args:
+        BUILD_REV: "1.7.4"
+    image: wedding:1.7.4
     container_name: wedding
     restart: unless-stopped
     ports:
