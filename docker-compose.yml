@@ -1,12 +1,9 @@
 services:
   wedding:
-    # Bump the number below (here AND in `image:`) whenever a deploy doesn't seem to pick up changes:
-    # a new image name can't exist yet, so Docker is forced to build it fresh from this repo.
-    build:
-      context: .
-      args:
-        BUILD_REV: "1.7.5"
-    image: wedding:1.7.5
+    # Built by GitHub on every push (see .github/workflows/build.yml) and downloaded here.
+    # In Portainer use "Pull and redeploy" with "Re-pull image" turned ON.
+    image: ghcr.io/gerdsss99/wedding:latest
+    pull_policy: always
     container_name: wedding
     restart: unless-stopped
     ports:
